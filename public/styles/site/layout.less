@@ -1,5 +1,8 @@
+@import "fonts.less";
+
 body {
   background: #000000;
+  font-size: 16px;
 }
 #header .logo {
   width: 100px;
@@ -18,18 +21,31 @@ body {
 }
 
 .banner.banner-home-page {
-  height: 80vh;
+  min-height: 100vh;
   background: url('/images/banner.jpg');
   background-size: cover;
   background-position: center center;
 
   text-transform: uppercase;
+  &, a {
+    font-family: "latolight", sans-serif;
+    color: #ffffff;
+    .bold {
+      font-family: "latobold", sans-serif;
+      font-weight: bold;
+    }
+  }
+  .main {
+    padding-top: 62px;
+    position: relative;
+    font-size: 24px;
+  }
+  .offset-top {
+    margin-top: 74px;
+  }
 }
 .banner-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)
+  text-align: center;
 }
 
 @circle-width: 1600px;
@@ -43,5 +59,45 @@ body {
 @keyframes rotate {
   100% {
 	transform: rotate(360deg);
+  }
+}
+
+// Contacts
+.contacts {
+  padding: 17px 20px 13px 27px;
+  .phone {
+    margin-top: 5px;
+  }
+}
+
+.social-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.social-links-item {
+  display: inline-block;
+  margin-right: 20px;
+  transition: transform 0.5s linear;
+  transform-origin: center;
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+// subscribe form
+.subscribe-form {
+  p {
+    font-size: 16px;
+  }
+  input, .btn {
+    color: #ffffff;
+    background: transparent;
+  }
+  .btn {
+    transition: background 0.4s linear;
+  }
+  .btn:hover {
+    background: #ffffff;
+    color: #000000;
   }
 }
