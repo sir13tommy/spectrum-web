@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
+var subscriber = require('./api/subscriber');
 var importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
@@ -19,5 +20,6 @@ exports = module.exports = function (app) {
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
-
+	// Api
+	app.post('/api/subscriber', subscriber);
 };
