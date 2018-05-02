@@ -32,3 +32,6 @@ node_modules
 
 # IDE folders
 .idea
+
+# Styles
+public/styles/*.min.css
