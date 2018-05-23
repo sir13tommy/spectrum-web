@@ -196,6 +196,11 @@ module.exports = function () {
 		return ('/blog/post/' + postSlug);
 	};
 
+	_helpers.roomUrl = function (roomSlug, options) {
+		return ('/rooms/' + roomSlug);
+	};
+
+
 	// might be a ghost helper
 	// used for pagination urls on blog
 	_helpers.pageUrl = function (pageNumber, options) {

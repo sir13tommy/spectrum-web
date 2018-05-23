@@ -20,6 +20,9 @@ exports = module.exports = function (app) {
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
+
+	app.get('/rooms', routes.views.rooms)
+	app.get('/rooms/:room', routes.views.room)
 	// Api
 	app.post('/api/subscriber', subscriber);
 };
