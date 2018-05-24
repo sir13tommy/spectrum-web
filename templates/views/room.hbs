@@ -1,32 +1,61 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-12 col-lg-12">
-      <article>
-        <p>
-          <a href="/rooms">Back to rooms</a>
-        </p>
-        <hr>
-        <header>
-          <h1>{{data.room.title}}</h1>
-        </header>
-        <div class="row">
-          <div class="col-md-6 col-lg-6">
-            {{#if data.room.iamge}}
-              <img src="{{cloudinaryUrl data.room.iamge crop='fit'}}" class="img-responsive" alt="">
-            {{/if}}
-          </div>
-          <div class="col-md-6 col-lg-6">
-            <ul class="list-group">
-              <li class="list-group-item"><strong>Prise: </strong>{{data.room.price}}</li>
-              <li class="list-group-item"><strong>Qty: </strong>{{data.room.qty}}</li>
-            </ul>
-            <div class="well">
-              {{{data.room.description}}}
-            </div>
-            <a href="/contact" class="btn btn-success btn-block">Ask About This Product</a>
+    <div id="room-carousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        {{#each data.room.sliderImages}}
+          <li data-target="#room-carousel" data-slide-to="{{@index}}" {{#ifeq @index 0}} class="active"{{/ifeq}}></li>
+        {{/each}}
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        {{#each data.room.sliderImages}}
+        <div class="item {{#ifeq @index 0}}active{{/ifeq}}" style="background-image: url({{cloudinaryUrl this}})">
+          <img src="{{cloudinaryUrl this}}" alt="...">
+          <div class="carousel-caption">
           </div>
         </div>
-      </article>
+        {{/each}}
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#room-carousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#room-carousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="page-header text-center">
+      <h1>{{data.room.title}}</h1>
+    </div>
+    <div class="col-sm-6">
+      {{{data.room.description.extended}}}
+    </div>
+    <div class="col-sm-6">
+      <div class="well">
+        <h3>В {{data.room.price}}грн в час входит:</h3>
+        {{{data.room.services}}}
+        <a href="/booking" class="btn btn-success btn-large btn-lg btn-block">Забронировать</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="page-header">
+      <h2 class="text-center">Снято в {{data.room.title}}</h2>
+      <div class="col-sm-12">
+        IMAGE GALLERY GOES HERE
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  BOOKING SCHEDULE GOES HERE!!
 </div>
