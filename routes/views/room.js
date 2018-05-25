@@ -18,12 +18,18 @@ exports = module.exports = function (req, res) {
       slug: locals.filters.room
     })
 
-    q.exec(function (err, result) {
+    q.exec().then(function (result) {
       locals.data.room = result
+      return keystone.list('GalleryImage').model.find()
+        .where('_id').in(result.gallery)
+        .exec()
+    }).then(function(result) {
+      locals.data.gallery = result
+      next()
+    }).catch(function(err) {
       next(err)
     })
   })
-
 
   view.render('room')
 }

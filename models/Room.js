@@ -18,7 +18,7 @@ Room.add({
   thumbnail: {type: Types.CloudinaryImage},
   bannerImage: {type: Types.CloudinaryImage},
   sliderImages: {type: Types.CloudinaryImages},
-  galleryImages: {type: Types.CloudinaryImages},
+  gallery: {type: Types.Relationship, ref: 'GalleryImage', many: true},
   publishDate: {type: Date, default: Date.now}
 })
 

@@ -12,7 +12,6 @@
       <div class="carousel-inner" role="listbox">
         {{#each data.room.sliderImages}}
         <div class="item {{#ifeq @index 0}}active{{/ifeq}}" style="background-image: url({{cloudinaryUrl this}})">
-          <img src="{{cloudinaryUrl this}}" alt="...">
           <div class="carousel-caption">
           </div>
         </div>
@@ -51,11 +50,17 @@
     <div class="page-header">
       <h2 class="text-center">Снято в {{data.room.title}}</h2>
       <div class="col-sm-12">
-        IMAGE GALLERY GOES HERE
+        {{#each data.gallery}}
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img src="{{cloudinaryUrl previewImage}}" alt="{{alt}}" class="img-responsive">
+          </div>
+        </div>
+        {{/each}}
       </div>
     </div>
   </div>
 </div>
 <div class="container">
-  BOOKING SCHEDULE GOES HERE!!
+  <h2>BOOKING SCHEDULE GOES HERE!!</h2>
 </div>
