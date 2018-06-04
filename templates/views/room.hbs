@@ -40,7 +40,6 @@
     </div>
     <div class="col-sm-6">
       <div class="well">
-        <h3>В {{data.room.price}}грн в час входит:</h3>
         {{{data.room.services}}}
         <a href="/booking" class="btn btn-success btn-large btn-lg btn-block">Забронировать</a>
       </div>
@@ -49,18 +48,15 @@
   <div class="row">
     <div class="page-header">
       <h2 class="text-center">Снято в {{data.room.title}}</h2>
-      <div class="col-sm-12">
-        {{#each data.gallery}}
-        <div class="col-sm-3">
-          <div class="thumbnail">
-            <img src="{{cloudinaryUrl previewImage}}" alt="{{alt}}" class="img-responsive">
-          </div>
+    </div>
+    <div class="col-sm-12">
+      {{#each data.gallery}}
+      <div class="col-sm-3">
+        <div class="thumbnail">
+          <img src="{{cloudinaryUrl previewImage}}" alt="{{alt}}" class="img-responsive">
         </div>
-        {{/each}}
       </div>
+      {{/each}}
     </div>
   </div>
-</div>
-<div class="container">
-  <h2>BOOKING SCHEDULE GOES HERE!!</h2>
 </div>

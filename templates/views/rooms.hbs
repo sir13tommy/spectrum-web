@@ -1,11 +1,17 @@
 {{# each rooms}}
 <section class="container-fluid rooms-section" style="background-image: url({{cloudinaryUrl bannerImage}})">
   <div class="container">
-    <h2>
-      <a href="{{roomUrl slug}}">{{title}}</a>
-    </h2>
-    {{{description.extended}}}
-    <a href="/booking" class="btn btn-primary">Забронировать</a>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2><a href="rooms/{{slug}}">{{title}}</a></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        {{{description.extended}}}
+        <a href="/booking" class="btn btn-primary">Забронировать</a>
+      </div>
+    </div>
   </div>
 </section>
 {{/each}}

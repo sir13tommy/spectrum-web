@@ -17,5 +17,4 @@ exports = module.exports =  function (req, res) {
         res.statusCode = 400
         res.send();
     }
-
 }

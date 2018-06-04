@@ -6,11 +6,12 @@ var _ = require('lodash');
 */
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
-		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
-		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contact', key: 'contact', href: '/contact' },
-		{ label: 'Rooms', key: 'rooms', href: '/rooms'}
+		{ label: 'Главная', key: 'home', href: '/' },
+		{ label: 'Локации', key: 'rooms', href: '/rooms' },
+		{ label: 'Расписане', key: 'booking', href: '/booking' },
+		{ label: 'Партнеры', key: 'partners', href: '/partners' },
+		{ label: 'Реквизит', key: 'stuff', href: '/stuff'},
+		{ label: 'Инфо', key: 'info', href: '/info'}
 	];
 	res.locals.user = req.user;
 	next();

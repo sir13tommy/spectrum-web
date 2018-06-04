@@ -9,6 +9,15 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home';
 
+	locals.data = {
+		rooms: []
+	}
+
+	var q = keystone.list('Room').model.find({})
+	q.exec().then(function(result) {
+		locals.data.rooms = result
+	})
+
 	// Render the view
 	view.render('index');
 };

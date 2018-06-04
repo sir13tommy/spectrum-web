@@ -14,7 +14,8 @@ Room.add({
   description: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
-	},
+  },
+  services: {type: Types.Html, wysiwyg: true},
   thumbnail: {type: Types.CloudinaryImage},
   bannerImage: {type: Types.CloudinaryImage},
   sliderImages: {type: Types.CloudinaryImages},
