@@ -10,13 +10,33 @@ exports = module.exports = function (req, res) {
 	locals.section = 'home';
 
 	locals.data = {
-		rooms: []
+		rooms: [],
+		services: []
 	}
 
-	var q = keystone.list('Room').model.find({})
-	q.exec().then(function(result) {
-		locals.data.rooms = result
-	})
+	var roomsQ = keystone.list('HomePageConfig').model.find({})
+	var homePageConfigQ = keystone.list('HomePageConfig').model.find({})
+
+	homePageConfigQ.exec()
+		.then((result, err) => {
+			locals.data.config = result
+		})
+		.then(() => {
+			var roomsQ = keystone.list('Room').model.find({})
+			var servicesQ = keystone.list('GalleryImage').model.find({})
+			var partnersQ = keystone.list('Partner').model.find({})
+			return Promise.all([
+				roomsQ.exec(),
+				servicesQ.exec(),
+				partnersQ.exec()
+			])
+		})
+		.then((rooms, services, partners) => {
+			console.log(rooms, services, partners)
+		})
+		.catch((err) => {
+			console.log(err)
+		})
 
 	// Render the view
 	view.render('index');
