@@ -9,7 +9,7 @@ var Partner = new keystone.List('Partner', {
 Partner.add({
   title: { type: String, required: true },
   logo: { type: Types.CloudinaryImage },
-  url: { types: Types.Url }
+  url: { type: Types.Url }
 })
 
 Partner.register()

@@ -76,6 +76,11 @@ module.exports = function () {
 		return date;
 	};
 
+	// remove all spaces in string
+	_helpers.phoneTrim = function (context, optisons) {
+		return context.replace(/(\s|\(|\))/g,'')
+	}
+
 	// ### Category Helper
 	// Ghost uses Tags and Keystone uses Categories
 	// Supports same interface, just different name/semantics

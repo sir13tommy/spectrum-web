@@ -19,20 +19,38 @@ exports = module.exports = function (req, res) {
 
 	homePageConfigQ.exec()
 		.then((result, err) => {
-			locals.data.config = result
+			if (result.length) {
+				locals.data.config = result[0]
+			}
 		})
 		.then(() => {
-			var roomsQ = keystone.list('Room').model.find({})
-			var servicesQ = keystone.list('GalleryImage').model.find({})
-			var partnersQ = keystone.list('Partner').model.find({})
+			let config = locals.data.config
+
+			var roomsQ = keystone.list('Room').model.find()
+				.where('_id').in(config.rooms)
+			var servicesQ = keystone.list('GalleryImage').model.find()
+				.where('_id').in(config.services)
+			var partnersQ = keystone.list('Partner').model.find()
+				.where('_id').in(config.partners)
 			return Promise.all([
 				roomsQ.exec(),
 				servicesQ.exec(),
 				partnersQ.exec()
 			])
 		})
-		.then((rooms, services, partners) => {
-			console.log(rooms, services, partners)
+		.then((result) => {
+			let [rooms, services, partners] = result
+			locals.data.rooms = rooms
+			locals.data.services = services
+			locals.data.partners = partners
+
+			services.forEach((service, idx) => {
+				if (idx % 2 === 0) {
+					service.even = true
+				} else {
+					service.even = false
+				}
+			})
 		})
 		.catch((err) => {
 			console.log(err)
