@@ -77,8 +77,9 @@ module.exports = function () {
 	};
 
 	// remove all spaces in string
-	_helpers.phoneTrim = function (context, optisons) {
-		return context.replace(/(\s|\(|\))/g,'')
+	_helpers.phoneTrim = function (context) {
+		let phone = context || ''
+		return phone.replace(/(\s|\(|\))/g,'')
 	}
 
 	// ### Category Helper

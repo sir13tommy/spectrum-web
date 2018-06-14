@@ -22,10 +22,14 @@
 		<div class="col-sm-4">
 			<div class="contacts text-center-mobile">
 				<div>
-					<a href="tel:{{phoneTrim data.config.phone1}}" class="phone">{{data.config.phone1}}</a>
+					{{#if data.config.phone1}}
+						<a href="tel:{{phoneTrim data.config.phone1}}" class="phone">{{data.config.phone1}}</a>
+					{{/if}}
 				</div>
 				<div>
-					<a href="tel:{{phoneTrim data.config.phone2}}" class="phone">{{data.config.phone2}}</a>
+					{{#if data.config.phone2}}
+						<a href="tel:{{phoneTrim data.config.phone2}}" class="phone">{{data.config.phone2}}</a>
+					{{/if}}
 				</div>
 			</div>
 		</div>
