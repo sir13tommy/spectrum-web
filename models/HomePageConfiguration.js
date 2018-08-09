@@ -13,7 +13,8 @@ HomePageConfig.add({
   partners: { type: Types.Relationship, ref: 'Partner', many: true},
   services: { type: Types.Relationship, ref: 'GalleryImage', many: true},
   rooms: { type: Types.Relationship, ref: 'Room', many: true},
-  publishedDate: { type: Date, default: Date.now}
+  publishedDate: { type: Date, default: Date.now},
+  photographers: { type: Types.Relationship, ref: 'Profile', many: true}
 })
 
 HomePageConfig.register()

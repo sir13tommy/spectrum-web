@@ -14,7 +14,6 @@ exports = module.exports = function (req, res) {
 		services: []
 	}
 
-	var roomsQ = keystone.list('HomePageConfig').model.find({})
 	var homePageConfigQ = keystone.list('HomePageConfig').model.find({})
 
 	homePageConfigQ.exec()
@@ -32,24 +31,33 @@ exports = module.exports = function (req, res) {
 				.where('_id').in(config.services)
 			var partnersQ = keystone.list('Partner').model.find()
 				.where('_id').in(config.partners)
+			var photographersQ = keystone.list('Profile').model.find()
+				.where('_id').in(config.photographers)
 			return Promise.all([
 				roomsQ.exec(),
 				servicesQ.exec(),
-				partnersQ.exec()
+				partnersQ.exec(),
+				photographersQ.exec()
 			])
 		})
 		.then((result) => {
-			let [rooms, services, partners] = result
+			let [rooms, services, partners, photographers] = result
 			locals.data.rooms = rooms
 			locals.data.services = services
 			locals.data.partners = partners
+			locals.data.photographers = photographers
 
-			services.forEach((service, idx) => {
-				if (idx % 2 === 0) {
-					service.even = true
-				} else {
-					service.even = false
-				}
+			services.foreach((service, idx) => {
+				service.even = idx % 2 === 0
+			})
+
+			photographers.map((profile) => {
+				let photosQ = keystone.list('GalleryImage').model.find()
+					.where('_id').in(profile.photos)
+				photosQ.exec()
+					.then((result) => {
+						profile.photos = result
+					})
 			})
 		})
 		.catch((err) => {

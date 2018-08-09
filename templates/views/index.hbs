@@ -60,10 +60,10 @@
 </section>
 <section class="section">
 	<div class="container-fluid">
-		<div class="page-header text-center">
-			<h2>Наши залы</h2>
-			</div>
 		<div class="row">
+			<div class="page-header text-center">
+				<h2>Наши залы</h2>
+			</div>
 			{{#each data.rooms}}
 				<div class="col-sm-4">
 					<div class="thumbnail img-hover">
@@ -113,4 +113,45 @@
 		</ul>
 	</div>
 </section>
-<section></section>
+<section>
+	<div class="page-header text-center">
+		<h2>Наши фотографы</h2>
+	</div>
+	{{#each data.photographers}}
+	<div class="photographer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-6">
+					<img src="{{cloudinaryUrl image}}" alt="" class="img-responsive">
+				</div>
+				<div class="col-sm-6">
+					<div class="well">
+						<p>{{{description}}}</p>
+						<ul class="tiles list-unstyled">
+							{{#each photos}}
+							<li>
+								<a href="#">
+									<img src="{{cloudinaryUrl previewImage}}" class="img-responsive" alt="">
+								</a>
+							</li>
+							{{/each}}
+						</ul>
+						<div class="contacts text-center">
+							<a target="_blank" href="{{instagram}}"><img src="/images/instagram.png" alt=""></a>
+							<a target="_blank" href="{{facebook}}"><img src="/images/facebook.png" alt=""></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</section>
+<section>
+	<div class="page-header text-center">
+		<h2>Мы в инстаграм</h2>
+	</div>
+	<div class="instagram">
+
+	</div>
+</section>
