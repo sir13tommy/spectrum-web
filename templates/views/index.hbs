@@ -152,6 +152,24 @@
 		<h2>Мы в инстаграм</h2>
 	</div>
 	<div class="instagram">
-
+		<div class="row">
+			{{#each data.instagramImages}}
+			<div class="col-xs-6 col-md-3">
+				{{#each this}}
+				<a href="{{standard_resolution.url}}" class="thumbnail" target="_blank">
+					<img src="{{low_resolution.url}}" alt="" class="img-responsive">
+				</a>
+				{{/each}}
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</section>
+<section>
+	<div class="page-header text-center">
+		<h2>Как нас найти</h2>
+	</div>
+	<div>
+		<iframe class="center-block" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d320.62945926637207!2d36.24055035549255!3d49.99193962970655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0ede57f35d7%3A0x5496f3df621b0fb6!2z0JzRg9C30YvQutCw0LvRjNC90YvQuSDQv9C10YAuLCA2LCDQpdCw0YDRjNC60L7Qsiwg0KXQsNGA0YzQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNjEwMDA!5e0!3m2!1sru!2sua!4v1534850179394" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 	</div>
 </section>

@@ -1,13 +1,20 @@
 var keystone = require('keystone');
-
+var {default: Instagram} = require('node-instagram')
 exports = module.exports = function (req, res) {
 
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+	var view = new keystone.View(req, res)
+	var locals = res.locals
+	
+	let {INSTAGRAM_CLIENT_ID, INSTAGRAM_CLIENT_SECRET, INSTAGRAM_ACCESS_TOKEN} = process.env
+	var instagramClient = new Instagram({
+		clientId: INSTAGRAM_CLIENT_ID,
+		clientSecret: INSTAGRAM_CLIENT_SECRET,
+		accessToken: INSTAGRAM_ACCESS_TOKEN
+	})
 
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'home';
+	locals.section = 'home'
 
 	locals.data = {
 		rooms: [],
@@ -47,7 +54,7 @@ exports = module.exports = function (req, res) {
 			locals.data.partners = partners
 			locals.data.photographers = photographers
 
-			services.foreach((service, idx) => {
+			services.forEach((service, idx) => {
 				service.even = idx % 2 === 0
 			})
 
@@ -59,11 +66,21 @@ exports = module.exports = function (req, res) {
 						profile.photos = result
 					})
 			})
+		}).then(() => {
+			return instagramClient.get('users/self/media/recent')
+		}).then(({data}) => {
+			locals.data.instagramImages = []
+			// separate images in 4th colums
+			locals.data.instagramImages.push([], [], [], [])
+			if (data && data instanceof Array) {
+				data.forEach(({images}, idx) => {
+					locals.data.instagramImages[idx % 4].push(images)
+				})
+			}
+		}).then(() => {
+			view.render('index');
 		})
 		.catch((err) => {
 			console.log(err)
 		})
-
-	// Render the view
-	view.render('index');
 };

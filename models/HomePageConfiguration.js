@@ -14,7 +14,12 @@ HomePageConfig.add({
   services: { type: Types.Relationship, ref: 'GalleryImage', many: true},
   rooms: { type: Types.Relationship, ref: 'Room', many: true},
   publishedDate: { type: Date, default: Date.now},
-  photographers: { type: Types.Relationship, ref: 'Profile', many: true}
+  photographers: { type: Types.Relationship, ref: 'Profile', many: true},
+  head: {
+    title: { type: String },
+    keywords: { type: String },
+    description: { type: String }
+  }
 })
 
 HomePageConfig.register()
