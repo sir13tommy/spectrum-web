@@ -1,0 +1,9 @@
+// override bootstrap variables
+@import "site/variables.scss";
+
+// import boostrap lib
+@import "bootstrap/bootstrap.scss";
+
+// add site own styles
+@import "site/fonts.scss";
+@import "site/layout.scss";

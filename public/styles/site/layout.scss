@@ -1,0 +1,29 @@
+body {
+  font-family: $ff-base, sans-serif;
+  font-size: $ff-size-base;
+  overflow-x: hidden;
+}
+
+.header {
+  padding: 40px 0;
+  background: $dark;
+  .phone {
+    color: $white;
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.socials {
+  li { 
+    margin-left: 41px;
+  }
+  a {
+    fill: $gray-500;
+    transition: fill 0.4s ease-out;
+    &:hover {
+      fill: $blue;
+    }
+  }
+}

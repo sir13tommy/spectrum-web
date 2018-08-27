@@ -10,7 +10,7 @@ keystone.init({
 	'name': 'spectrum-web',
 	'brand': 'spectrum-web',
 
-	'less': 'public',
+	'sass': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',

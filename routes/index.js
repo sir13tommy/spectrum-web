@@ -6,6 +6,7 @@ var importRoutes = keystone.importer(__dirname);
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
+keystone.pre('render', middleware.initConfigs)
 
 // Import Route Controllers
 var routes = {

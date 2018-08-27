@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var keystone = require('keystone')
 
 
 /**
@@ -16,6 +17,19 @@ exports.initLocals = function (req, res, next) {
 	res.locals.user = req.user;
 	next();
 };
+
+exports.initConfigs = function (req, res, next) {
+	let query = keystone.list('SiteConfig').model.find();
+	query.exec().then((result, err) => {
+		if (err) {
+			console.log(err)
+		}
+		if (result.length) {
+			res.locals.data.siteConfigs = result[0]
+		}
+		next()
+	})
+}
 
 
 /**
