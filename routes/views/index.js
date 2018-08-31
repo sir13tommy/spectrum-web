@@ -16,10 +16,26 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home'
 
+	console.log(locals)
 	locals.data = {
 		rooms: [],
 		services: []
 	}
+
+	locals.data.advantages = [
+		{icon: '3.png', title: '3 разнообразных зала'},
+		{icon: 'drop.png', title: 'белоснежная циклорама'},
+		{icon: 'clock.png', title: '7 минут пешком от м. Исторический музей'},
+		{icon: 'step.png', title: 'аренда животных и костюмов'},
+		{icon: 'lipstick.png', title: 'отдельная гримерка'},
+		{icon: 'wifi.png', title: 'бесплатный wi-fi'},
+		{icon: 'add.png', title: 'возможность аренды сверх рабочих часов'},
+		{icon: '24.png', title: 'постоянная online поддержка'},
+		{icon: 'parking.png', title: 'парковка'},
+		{icon: 'dollar.png', title: 'доступные цены'},
+		{icon: 'fan.png', title: 'дополнительное оборудование'},
+		{icon: 'percent.png', title: 'акционные цены от 2-часов аренды'},
+	]
 
 	var homePageConfigQ = keystone.list('HomePageConfig').model.find({})
 
@@ -34,7 +50,7 @@ exports = module.exports = function (req, res) {
 
 			var roomsQ = keystone.list('Room').model.find()
 				.where('_id').in(config.rooms)
-			var servicesQ = keystone.list('GalleryImage').model.find()
+			var servicesQ = keystone.list('Service').model.find()
 				.where('_id').in(config.services)
 			var partnersQ = keystone.list('Partner').model.find()
 				.where('_id').in(config.partners)
@@ -69,14 +85,14 @@ exports = module.exports = function (req, res) {
 		}).then(() => {
 			return instagramClient.get('users/self/media/recent')
 		}).then(({data}) => {
-			locals.data.instagramImages = []
-			// separate images in 4th colums
-			locals.data.instagramImages.push([], [], [], [])
-			if (data && data instanceof Array) {
-				data.forEach(({images}, idx) => {
-					locals.data.instagramImages[idx % 4].push(images)
-				})
-			}
+			locals.data.instagramImages = data.map(({images}) => images)
+			// // separate images in 4th colums
+			// locals.data.instagramImages.push([], [], [], [])
+			// if (data && data instanceof Array) {
+			// 	data.forEach(({images}, idx) => {
+			// 		locals.data.instagramImages[idx % 4].push(images)
+			// 	})
+			// }
 		}).then(() => {
 			view.render('index');
 		})

@@ -5,10 +5,14 @@ var HomePageConfig = new keystone.List('HomePageConfig', {
 })
 
 HomePageConfig.add({
-  description: { type: Types.Html, wysiwyg: true, height: 300 },
+  description: {
+    html: {type: Types.Html, wysiwyg: true, height: 300},
+    image: { type: Types.CloudinaryImage }
+  },
   partners: { type: Types.Relationship, ref: 'Partner', many: true},
-  services: { type: Types.Relationship, ref: 'GalleryImage', many: true},
+  services: { type: Types.Relationship, ref: 'Service', many: true},
   rooms: { type: Types.Relationship, ref: 'Room', many: true},
+  sliderImages: { type: Types.CloudinaryImages },
   publishedDate: { type: Date, default: Date.now},
   photographers: { type: Types.Relationship, ref: 'Profile', many: true},
   head: {

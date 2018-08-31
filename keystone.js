@@ -40,7 +40,6 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	posts: ['posts', 'post-categories'],
-	galleries: 'galleries',
 	enquiries: 'enquiries',
 	users: 'users',
 });

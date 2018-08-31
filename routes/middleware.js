@@ -25,7 +25,7 @@ exports.initConfigs = function (req, res, next) {
 			console.log(err)
 		}
 		if (result.length) {
-			res.locals.data.siteConfigs = result[0]
+			res.locals.siteConfigs = result[0]
 		}
 		next()
 	})
