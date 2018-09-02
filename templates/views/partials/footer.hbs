@@ -4,8 +4,12 @@
             <div class="col-sm-4">
                 <nav>
                 {{#each footerNav.cols}}
-                    <ul class="list-unstyled">
-                        
+                    <ul class="list-unstyled d-inline-block mr-3">
+                        {{#each this}}
+                        <li>
+                            <a href="{{href}}">{{label}}</a>
+                        </li>
+                        {{/each}}
                     </ul>
                 {{/each}}
                 </nav>

@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var {default: Instagram} = require('node-instagram')
+
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res)
@@ -16,7 +17,6 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'home'
 
-	console.log(locals)
 	locals.data = {
 		rooms: [],
 		services: []
@@ -86,13 +86,6 @@ exports = module.exports = function (req, res) {
 			return instagramClient.get('users/self/media/recent')
 		}).then(({data}) => {
 			locals.data.instagramImages = data.map(({images}) => images)
-			// // separate images in 4th colums
-			// locals.data.instagramImages.push([], [], [], [])
-			// if (data && data instanceof Array) {
-			// 	data.forEach(({images}, idx) => {
-			// 		locals.data.instagramImages[idx % 4].push(images)
-			// 	})
-			// }
 		}).then(() => {
 			view.render('index');
 		})

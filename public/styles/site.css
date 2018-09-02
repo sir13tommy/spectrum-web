@@ -6454,3 +6454,8 @@ h1, h2, h3, h4, h5, h6 {
   .services .s-badge .c-danger {
     padding: 3px 0;
     background: #a70707; }
+
+.footer {
+  background-color: black; }
+  .footer a {
+    color: inherit; }

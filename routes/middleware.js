@@ -14,6 +14,21 @@ exports.initLocals = function (req, res, next) {
 		{ label: 'Реквизит', key: 'stuff', href: '/stuff'},
 		{ label: 'Инфо', key: 'info', href: '/info'}
 	];
+	res.locals.footerNav = {}
+	res.locals.footerNav.cols = []
+	res.locals.footerNav.cols.push([
+		{ label: 'Главная', key: 'home', href: '/' },
+		{ label: 'Залы', key: 'rooms', href: '/rooms' },
+		{ label: 'Расписание', key: 'booking', href: '/booking' },
+		{ label: 'Расценки', key: 'price', href: '/price' },
+	])
+	res.locals.footerNav.cols.push([
+		{ label: 'Наши услуги', key: 'services', href: '/services' },
+		{ label: 'Связь с нами', key: 'contact', href: '/contact' },
+		{ label: 'Бронирование', key: 'booking', href: '/booking' },
+		{ label: 'Где мы находимся', key: 'location', href: '/location' }
+	])
+
 	res.locals.user = req.user;
 	next();
 };
