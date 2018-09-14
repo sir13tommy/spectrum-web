@@ -1,20 +1,12 @@
 {{!< default}}
-<div id="carousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
+<div class="carousel-slick">
+  <div class="carousel-slick-inner">
 		{{#each data.config.sliderImages }}
-    <div class="carousel-item {{#ifeq @index 0}}active{{/ifeq}}">
-      <img class="d-block w-100" src="{{cloudinaryUrl this}}" alt="">
-    </div>
+    <div class="carousel-slick-item">
+			<img src="{{cloudinaryUrl this}}" class="d-block w-100" alt="">
+		</div>
 		{{/each}}
   </div>
-  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
 <section class="section-light py-5">
 	<h2 class="fancy text-center"><span>Фотостудия Spectrum</span></h2>
@@ -34,11 +26,11 @@
 	</div>
 </section>
 <section class="section-dark pt-2 pb-5">
-	<h2 class="fancy fancy-dark text-center">span>Залы</span></h2>
+	<h2 class="fancy fancy-dark text-center"><span>Залы</span></h2>
 	<div class="container-fluid">
-		<div class="row no-gutters align-items-stretch">
+		<div class="row align-items-stretch">
 			{{#each data.rooms}}
-				<div class="col-sm-4 p-5 img-zoom">
+				<div class="col-sm-4 img-zoom">
 					<div class="img-zoom-back" style="background-image: url({{cloudinaryUrl	 thumbnail}});"></div>
 					<div class="img-zoom-caption">
 						<h3 class="img-zoom-caption-header">{{title}}</h3>
@@ -73,7 +65,7 @@
 	<h2 class="fancy fancy-dark text-center">
 		<span>Услуги</span>
 	</h2>
-	<div class="container tiles">
+	<div class="container bg">
 		{{#each data.services}}
 		<div class="row align-items-center my-4">
 				<div class="col-sm-5 {{#if even}} order-2 {{/if}}">
@@ -119,7 +111,7 @@
 		<div class="row align-items-center">
 			<div class="col-sm">
 				<div>
-					<a class="dg-widget-link" href="http://2gis.ua/kharkov/firm/70000001033184670/center/36.241208910942085,49.991953189652364/zoom/18?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Харькова</a><div class="dg-widget-link"><a href="http://2gis.ua/kharkov/firm/70000001033184670/photos/70000001033184670/center/36.241208910942085,49.991953189652364/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div><div class="dg-widget-link"><a href="http://2gis.ua/kharkov/center/36.240654,49.991767/zoom/18/routeTab/rsType/bus/to/36.240654,49.991767╎Spectrum, фотостудия?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Spectrum, фотостудия</a></div><script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":49.991953189652364,"lon":36.241208910942085,"zoom":18},"opt":{"city":"kharkov"},"org":[{"id":"70000001033184670"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+					<a class="dg-widget-link" href="http://2gis.ua/kharkov/firm/70000001033184670/center/36.24065637588502,49.99340854373586/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Харькова</a><div class="dg-widget-link"><a href="http://2gis.ua/kharkov/firm/70000001033184670/photos/70000001033184670/center/36.24065637588502,49.99340854373586/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div><div class="dg-widget-link"><a href="http://2gis.ua/kharkov/center/36.240654,49.991767/zoom/16/routeTab/rsType/bus/to/36.240654,49.991767╎Spectrum, фотостудия?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Spectrum, фотостудия</a></div><script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":400,"borderColor":"#a3a3a3","pos":{"lat":49.99340854373586,"lon":36.24065637588502,"zoom":16},"opt":{"city":"kharkov"},"org":[{"id":"70000001033184670"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
 				</div>
 			</div>
 			<div class="col-sm">

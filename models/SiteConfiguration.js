@@ -9,6 +9,7 @@ SiteConfig.add({
   phone2: { type: String },
   instagram: { type: Types.Url },
   facebook: { type: Types.Url },
+  vk: {type: Types.Url},
   logo: { type: Types.CloudinaryImage },
   address: { type: Types.Html, wysiwyg: true}
 })

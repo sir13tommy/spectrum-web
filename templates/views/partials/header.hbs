@@ -1,14 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav w-100 justify-content-around">
-        {{#each navLinks}}
-        <li class="nav-item {{#ifeq section key}}active{{/ifeq}}">
-            <a class="nav-link" href="{{href}}">{{label}}</a>
-        </li>
-        {{/each}}
-    </ul>
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav w-100 justify-content-around">
+          {{#each navLinks}}
+          <li class="nav-item {{#ifeq section key}}active{{/ifeq}}">
+              <a class="nav-link text-uppercase" href="{{href}}">{{label}}</a>
+          </li>
+          {{/each}}
+      </ul>
+    </div>
   </div>
 </nav>

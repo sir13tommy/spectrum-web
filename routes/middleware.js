@@ -8,11 +8,11 @@ var keystone = require('keystone')
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Главная', key: 'home', href: '/' },
-		{ label: 'Локации', key: 'rooms', href: '/rooms' },
-		{ label: 'Расписане', key: 'booking', href: '/booking' },
-		{ label: 'Партнеры', key: 'partners', href: '/partners' },
-		{ label: 'Реквизит', key: 'stuff', href: '/stuff'},
-		{ label: 'Инфо', key: 'info', href: '/info'}
+		{ label: 'Залы', key: 'rooms', href: '/rooms' },
+		{ label: 'Акции', key: 'discounts', href: '/discounts' },
+		{ label: 'Инфо', key: 'info', href: '/info'},
+		{ label: 'Прокат', key: 'rent', href: '/rent' },
+		{ label: 'Забронировать', key: 'booking', href: '/booking'}
 	];
 	res.locals.footerNav = {}
 	res.locals.footerNav.cols = []
