@@ -1,40 +1,16 @@
-<div class="container-fluid">
-  <div class="row">
-    <div id="room-carousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        {{#each data.room.sliderImages}}
-          <li data-target="#room-carousel" data-slide-to="{{@index}}" {{#ifeq @index 0}} class="active"{{/ifeq}}></li>
-        {{/each}}
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        {{#each data.room.sliderImages}}
-        <div class="item {{#ifeq @index 0}}active{{/ifeq}}" style="background-image: url({{cloudinaryUrl this}})">
-          <div class="carousel-caption">
-          </div>
-        </div>
-        {{/each}}
-      </div>
-
-      <!-- Controls -->
-      <a class="left carousel-control" href="#room-carousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#room-carousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+{{!< default}}
+<section class="carousel-slick">
+  <div class="carousel-slick-inner">
+		{{#each data.room.sliderImages }}
+    <div class="carousel-slick-item">
+			<img src="{{cloudinaryUrl this}}" class="d-block w-100" alt="">
+		</div>
+		{{/each}}
   </div>
-</div>
-<div class="container">
+</section>
+<section class="container">
+  <h1 class="fancy fancy-light text-center"><span>{{data.room.title}}</span></h1>
   <div class="row">
-    <div class="page-header text-center">
-      <h1>{{data.room.title}}</h1>
-    </div>
     <div class="col-sm-6">
       {{{data.room.description.extended}}}
     </div>
@@ -59,4 +35,4 @@
       {{/each}}
     </div>
   </div>
-</div>
+</section>
