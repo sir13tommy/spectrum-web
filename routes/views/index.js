@@ -85,7 +85,7 @@ exports = module.exports = function (req, res) {
 		}).then(() => {
 			return instagramClient.get('users/self/media/recent')
 		}).then(({data}) => {
-			locals.data.instagramImages = data.map(({images}) => images)
+			locals.data.instagramPosts = data.map(({images, link}) => {return{images, link}})
 		}).then(() => {
 			view.render('index');
 		})

@@ -15,21 +15,20 @@
       {{{data.room.description.extended}}}
     </div>
     <div class="col-sm-6">
-      <div class="well">
-        {{{data.room.services}}}
-        <a href="/booking" class="btn btn-success btn-large btn-lg btn-block">Забронировать</a>
-      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="page-header">
-      <h2 class="text-center">Снято в {{data.room.title}}</h2>
-    </div>
-    <div class="col-sm-12">
+  <div class="text-center">
+    <a href="#" class="btn btn-primary">Забронировать</a>
+  </div>
+</section>
+<section class="section">
+  <h2 class="fancy fancy-light text-center"><span>Снято в {{data.room.title}}</span></h2>
+  <div class="container">
+    <div class="row align-items-center">
       {{#each data.gallery}}
-      <div class="col-sm-3">
+      <div class="col-sm-4 mb-4">
         <div class="thumbnail">
-          <img src="{{cloudinaryUrl previewImage}}" alt="{{alt}}" class="img-responsive">
+          <img src="{{cloudinaryUrl previewImage}}" alt="{{alt}}" class="img-fluid">
         </div>
       </div>
       {{/each}}

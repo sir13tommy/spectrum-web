@@ -35,7 +35,7 @@
 					<div class="img-zoom-caption">
 						<h3 class="img-zoom-caption-header">{{title}}</h3>
 						{{{description.brief}}}
-						<a role="button" href="#" class="btn btn-outline-primary">Перейти в зал</a>
+						<a role="button" href="{{roomUrl slug}}" class="btn btn-outline-primary">Перейти в зал</a>
 					</div>
 				</div>
 			{{/each}}
@@ -93,10 +93,10 @@
 	</h2>
 	<div class="instagram">
 		<div class="d-flex flex-wrap align-content-start">
-			{{#each data.instagramImages}}
+			{{#each data.instagramPosts}}
 			<div class="m-2 flex-grow-1 flex-shrink-1">
-				<a href="{{standard_resolution.url}}" class="thumbnail" target="_blank">
-					<img src="{{thumbnail.url}}" alt="" class="img-fluid">
+				<a href="{{link}}" class="thumbnail" target="_blank">
+					<img src="{{images.thumbnail.url}}" alt="" class="img-fluid">
 				</a>
 			</div>
 			{{/each}}
