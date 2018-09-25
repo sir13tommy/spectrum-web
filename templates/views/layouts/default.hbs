@@ -22,6 +22,9 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 		<link href="/styles/site.css" rel="stylesheet">
 
+		{{!-- Add lightbox modal plugin --}}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 			- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}
@@ -75,7 +78,10 @@
 		</div>
 		<script src="/js/jquery/jquery-3.0.0.min.js" defer></script>
 		<script src="/js/bootstrap/bootstrap.min.js" defer></script>
+		{{!-- Add slick image slider plugin --}}
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+		{{!-- Add ligthbox modal plugin --}}
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" defer></script>
 		<script src="/js/app.js" defer></script>
 		{{{isAdminEditorJS user}}}
 	</body>

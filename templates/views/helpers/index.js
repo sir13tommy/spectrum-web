@@ -6,7 +6,7 @@ var cloudinary = require('cloudinary');
 
 // Collection of templates to interpolate
 var linkTemplate = _.template('<a href="<%= url %>"><%= text %></a>');
-var scriptTemplate = _.template('<script src="<%= src %>"></script>');
+var scriptTemplate = _.template('<script src="<%= src %>" defer></script>');
 var cssLinkTemplate = _.template('<link href="<%= href %>" rel="stylesheet">');
 
 module.exports = function () {
@@ -142,7 +142,7 @@ module.exports = function () {
 		var output = '';
 		if (typeof (user) !== 'undefined' && user.isAdmin) {
 			output = scriptTemplate({
-				src: '/keystone/js/content/editor.js',
+				src: '/keystone/js/content/editor.js'
 			});
 		}
 		return new hbs.SafeString(output);

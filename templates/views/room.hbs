@@ -28,7 +28,9 @@
       {{#each data.gallery}}
       <div class="col-sm-4 mb-4">
         <div class="thumbnail">
-          <img src="{{cloudinaryUrl previewImage}}" alt="{{alt}}" class="img-fluid">
+          <a href="{{cloudinaryUrl image}}" data-toggle="lightbox">
+            <img src="{{cloudinaryUrl previewImage}}" alt="{{alt}}" class="img-fluid">
+          </a>
         </div>
       </div>
       {{/each}}
