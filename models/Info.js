@@ -1,10 +1,10 @@
 var keystone = require('keystone')
 var Types = keystone.Field.Types
 
-var SiteConfig = new keystone.List('SiteConfig', {
+var Info = new keystone.List('Info', {
 })
 
-SiteConfig.add({
+Info.add({
   phone1: { type: String },
   phone2: { type: String },
   instagram: { type: Types.Url },
@@ -14,4 +14,4 @@ SiteConfig.add({
   address: { type: Types.Html, wysiwyg: true}
 })
 
-SiteConfig.register()
+Info.register()

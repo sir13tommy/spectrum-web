@@ -61,11 +61,11 @@
 		</div>
 	</div>
 </section>
-<section class="section-dark p-3 services">
-	<h2 class="fancy fancy-dark text-center">
+<section class="section-dark p-3 services bg">
+	<h2 class="fancy text-center">
 		<span>Услуги</span>
 	</h2>
-	<div class="container bg">
+	<div class="container">
 		{{#each data.services}}
 		<div class="row align-items-center my-4">
 				<div class="col-sm-5 {{#if even}} order-2 {{/if}}">
@@ -116,7 +116,7 @@
 			</div>
 			<div class="col-sm">
 				<div class="content">
-					{{{siteConfigs.address}}}
+					{{{info.address}}}
 				</div>
 			</div>
 		</div>

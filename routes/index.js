@@ -20,6 +20,7 @@ exports = module.exports = function (app) {
 
 	app.get('/rooms', routes.views.rooms)
 	app.get('/rooms/:room', routes.views.room)
+	app.get('/info', routes.views.info)
 	// Api
 	app.post('/api/subscriber', subscriber);
 };

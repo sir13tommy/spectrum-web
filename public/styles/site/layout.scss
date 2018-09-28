@@ -25,6 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 .section-dark {
   background: $dark;
   color: $white;
+  .fancy {
+    &:before,
+    &:after {
+      border-color: $white;
+    }
+  }
 }
 .section-light {
   background: $white;

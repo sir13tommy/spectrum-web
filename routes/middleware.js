@@ -34,13 +34,13 @@ exports.initLocals = function (req, res, next) {
 };
 
 exports.initConfigs = function (req, res, next) {
-	let query = keystone.list('SiteConfig').model.find();
+	let query = keystone.list('Info').model.find();
 	query.exec().then((result, err) => {
 		if (err) {
 			console.log(err)
 		}
 		if (result.length) {
-			res.locals.siteConfigs = result[0]
+			res.locals.info = result[0]
 		}
 		next()
 	})

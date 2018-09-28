@@ -38,32 +38,32 @@
 						<div class="col-sm">
 							<img src="/images/iphone.png" class="pull-left mr-2" alt="">
 							<div class="d-inline-block nowrap align-middle">
-								{{#if siteConfigs.phone1}}
-									<a href="tel:{{phoneTrim siteConfigs.phone1}}" class="phone">{{siteConfigs.phone1}}</a>
+								{{#if info.phone1}}
+									<a href="tel:{{phoneTrim info.phone1}}" class="phone">{{info.phone1}}</a>
 								{{/if}}
 								<br>
-								{{#if siteConfigs.phone2}}
-									<a href="tel:{{phoneTrim siteConfigs.phone2}}" class="phone">{{siteConfigs.phone2}}</a>
+								{{#if info.phone2}}
+									<a href="tel:{{phoneTrim info.phone2}}" class="phone">{{info.phone2}}</a>
 								{{/if}}
 							</div>
 						</div>
 						<div class="col-sm">
-							<img src="{{cloudinaryUrl siteConfigs.logo}}" alt="">
+							<img src="{{cloudinaryUrl info.logo}}" alt="">
 						</div>
 						<div class="col-sm">
 							<ul class="list-unstyled d-flex socials justify-content-end">
 								<li class="ml-auto">
-									<a href="{{siteConfigs.vk}}">
+									<a href="{{info.vk}}">
 										<i class="fab fa-vk"></i>
 									</a>
 								</li>
 								<li class="ml-auto">
-									<a href="{{siteConfigs.facebook}}">
+									<a href="{{info.facebook}}">
 										<i class="fab fa-facebook-square"></i>
 									</a>
 								</li>
 								<li class="ml-auto">
-									<a href="{{siteConfigs.instagram}}">
+									<a href="{{info.instagram}}">
 										<i class="fab fa-instagram"></i>
 									</a>
 								</li>
