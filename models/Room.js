@@ -15,12 +15,13 @@ Room.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
   },
-  services: {type: Types.Html, wysiwyg: true},
   thumbnail: {type: Types.CloudinaryImage},
   bannerImage: {type: Types.CloudinaryImage},
   sliderImages: {type: Types.CloudinaryImages},
   gallery: {type: Types.Relationship, ref: 'GalleryImage', many: true},
-  publishDate: {type: Date, default: Date.now}
+  publishDate: {type: Date, default: Date.now},
+  rooms: {type: Types.Relationship, ref: 'Room', many: true},
+  stuff: {type: Types.Relationship, ref: 'GalleryImage', many: true}
 })
 
 Room.register()
