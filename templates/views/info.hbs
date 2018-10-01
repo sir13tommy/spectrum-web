@@ -13,13 +13,108 @@
     <span>Контактные данные</span>
   </h2>
   <div class="container">
-    <div class="row">
+    <div class="row mt-4 mb-1">
       <div class="col-sm-4 text-center">
-        <figure>
-          <img src="/images/location-pointer.png" alt="">
-          <figcaption>{{{config.address}}}</figcaption>
-        </figure>
+        <div class="px-4">
+          <div class="mb-4">
+            <img src="/images/location-pointer.png" alt="" class="mr-3">
+            <span>Адрес</span>
+          </div>
+          <div>{{{config.address}}}</div>
+        </div>
+      </div>
+      <div class="col-sm-4 text-center">
+        <div class="px-4">
+          <div class="mb-4">
+            <img src="/images/iphone_gray.png" alt="" class="mr-3">
+            <span>Телефоны</span>
+          </div>
+          <div>{{info.phone1}}</div>
+          <div>{{info.phone2}}</div>
+        </div>
+      </div>
+      <div class="col-sm-4 text-center">
+        <div class="px-4 pt-2">
+          <div class="mb-4">
+            <img src="/images/envelope.png" alt="" class="mr-3">
+            <span>Почта</span>
+          </div>
+          <div>{{info.email}}</div>
+        </div>
       </div>
     </div>
   </div>
+</section>
+<section class="section-dark p-3">
+	<h2 class="fancy fancy-dark text-center mb-3">
+		<span>Как нас найти</h2>
+	</h2>
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-sm">
+				<div>
+					<a class="dg-widget-link" href="http://2gis.ua/kharkov/firm/70000001033184670/center/36.24065637588502,49.99340854373586/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Харькова</a><div class="dg-widget-link"><a href="http://2gis.ua/kharkov/firm/70000001033184670/photos/70000001033184670/center/36.24065637588502,49.99340854373586/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div><div class="dg-widget-link"><a href="http://2gis.ua/kharkov/center/36.240654,49.991767/zoom/16/routeTab/rsType/bus/to/36.240654,49.991767╎Spectrum, фотостудия?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Spectrum, фотостудия</a></div><script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script><script charset="utf-8">new DGWidgetLoader({"width":640,"height":400,"borderColor":"#a3a3a3","pos":{"lat":49.99340854373586,"lon":36.24065637588502,"zoom":16},"opt":{"city":"kharkov"},"org":[{"id":"70000001033184670"}]});</script><noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+				</div>
+			</div>
+			<div class="col-sm">
+				<div class="content">
+					{{{info.address}}}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section py-3">
+  <h2 class="fancy text-center mb-3">
+    <span>Маршрут от метро?</span>
+  </h2>
+  <div class="container-fluid">
+    <div class="row no-gutters">
+      <div class="col text-center">
+        <img src="{{cloudinaryUrl config.metroGuide}}" alt="" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-dark py-3">
+  <h2 class="fancy text-center"><span>ВАЖНО! ВОЗМОЖНЫ ПРОБЛЕМЫ С КАРТОЙ</span></h2>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-sm-7">
+        {{{config.googleGuide.text}}}
+      </div>
+      <div class="col-sm-5">
+        <img src="{{cloudinaryUrl config.googleGuide.image}}" alt="" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section py-3">
+  <h2 class="fancy text-center">
+    <span>Правила</span>
+  </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {{{config.rules}}}
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2 class="fancy text-center"><span>Залы</span></h2>
+	<div class="container-fluid">
+		<div class="row align-items-stretch">
+			{{#each config.rooms}}
+				<div class="col-sm-4 img-zoom">
+					<div class="img-zoom-back" style="background-image: url({{cloudinaryUrl	 thumbnail}});"></div>
+					<div class="img-zoom-caption">
+						<h3 class="img-zoom-caption-header">{{title}}</h3>
+						{{{description.brief}}}
+						<a role="button" href="{{roomUrl slug}}" class="btn btn-outline-primary">Перейти в зал</a>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
 </section>

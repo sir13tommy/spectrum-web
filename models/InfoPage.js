@@ -11,7 +11,14 @@ InfoPage.add({
     description: { type: String }
   },
   sliderImages: { type: Types.CloudinaryImages },
-  address: { type: Types.Html, wysiwyg: true}
+  address: { type: Types.Html, wysiwyg: true },
+  metroGuide: { type: Types.CloudinaryImage },
+  googleGuide: {
+    image: { type: Types.CloudinaryImage },
+    text: { type: Types.Html, wysiwyg: true }
+  },
+  rules: { type: Types.Html, wysiwyg: true},
+  rooms: { type: Types.Relationship, ref: 'Room', many: true}
 })
 
 InfoPage.register()

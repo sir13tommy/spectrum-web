@@ -13,8 +13,13 @@ module.exports = function (req, res) {
   view.on('init', (next) => {
     infoQ.exec().then((result) => {
       locals.config = result[0]
+      return keystone.list('Room').model.find()
+				.where('_id').in(locals.config.rooms)
+    }).then((result) => {
+      locals.config.rooms = result
       next()
-    }).catch((err) => {
+    })
+    .catch((err) => {
       next(err)
     })
   })
